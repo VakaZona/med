@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    О себе
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Пользователь</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item active">{{ current_user.name }}</li>
+                        <li class="list-group-item">Логин: {{ current_user.username }}</li>
+                        <li class="list-group-item">Email: {{ current_user.email }}</li>
+                        <li class="list-group-item" >Создан: {{ current_user.created_on }}</li>
+                        <li class="list-group-item" >Обновлен: {{ current_user.updated_on }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

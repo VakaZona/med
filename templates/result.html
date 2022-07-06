@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ patient.q1 }}
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Результаты пациента, {{ patient.q1 }}</h2>
+        <h3>Вероятность ИСМП</h3>
+        {% if  (patient.result)*100 < (33.3) %}
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{ (patient.result)*100 }}%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">{{ (patient.result)*100 }}%</div>
+        </div>
+        {% endif %}
+        {% if  (patient.result)*100 < (66.6) and (patient.result)*100 > (33.3) %}
+        <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: {{ (patient.result)*100 }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ (patient.result)*100 }}%</div>
+        </div>
+        {% endif %}
+        {% if  (patient.result)*100 > (66.6) %}
+        <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: {{ (patient.result)*100 }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{ (patient.result)*100 }}%</div>
+        </div>
+        {% endif %}
+
+
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item active">{{ patient.q1 }}</li>
+                        <li class="list-group-item">Мед. Учреждение: {{ patient.med }}</li>
+                        <li class="list-group-item">Дата обследования: {{ patient.date.date() }}</li>
+                        <li class="list-group-item">Вероятность ИСМП: {{ (patient.result) }}</li>
+                        <li class="list-group-item">Вероятность ИСМП(%): {{ (patient.result)*100 }}%</li>
+                        <a href="/static/{{ current_user.username }}/{{ patient.q1 }}.docx" class="list-group-item list-group-item-action">Скачать Word</a>
+                        <a href="/static/{{ current_user.username }}/{{ patient.q1 }}.xlsx" class="list-group-item list-group-item-action">Скачать Excel</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <h2 class="pb-2 border-bottom">Прошлые результаты пациента (обращайте внимание на возраст)</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        {% for el in all_patient %}
+        {% if el.q1 == patient.q1  and el.date!=patient.date%}
+            <div class="col d-flex align-items-start">
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item active">{{ el.q1 }}</li>
+                        <li class="list-group-item">Мед. Учреждение: {{ el.med }}</li>
+                        <li class="list-group-item">Возраст: {{ el.q2 }}</li>
+                        <li class="list-group-item">Дата опроса: {{ el.date.date() }}</li>
+                        <li class="list-group-item">Вероятность ИСМП: {{ (el.result) }}</li>
+                        <li class="list-group-item">Вероятность ИСМП(%): {{ (el.result)*100 }}%</li>
+                    </ul>
+                </div>
+                </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+
+
+
+{% endblock %}

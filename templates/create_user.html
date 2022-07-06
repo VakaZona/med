@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание пользователя
+{% endblock %}
+
+{% block body %}
+   <div class="container px-4 py-5" id="hanging-icons">
+       <h2 class="pb-2 border-bottom">Создание нового пользователя</h2>
+       <form method="post">
+           <div class="col-md-7 col-lg-8">
+               <h6>Логин</h6>
+               <input type="text"  name="username" placeholder required class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" title="Строчные и прописные латинские буквы и возможны цифры">
+               <h6>Пароль</h6>
+               <input type="text"  name="password" placeholder required class="form-control" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Строчные и прописные латинские буквы, цифры">
+               <h6>Роль </h6>
+               <select class="form-select" name="role" required class="form-control">
+                    <option value="user">Врач</option>
+                    <option value="admin">Админ</option>
+               </select>
+               <h6>Ф.И.О. </h6>
+               <input type="text"  name="name" placeholder required class="form-control" pattern="([А-Яа-яЁё]{1,})\s([А-Яа-яЁё]{1,})\s([А-Яа-яЁё]{1,})" title="Только русские буквы и один пробел между ФИО ">
+               <h6>Email</h6>
+               <input type="text"  name="email" placeholder required class="form-control" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" title="почта в формате example@example.example"><br>
+               <input  type="submit" value="Создать" class="btn btn-primary">
+           </div>
+
+       </form>
+   </div>
+
+{% endblock %}

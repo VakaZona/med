@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Опрос
+{% endblock %}
+
+{% block body %}
+    <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">Опрос по внутрибольничным инфекциям</h2>
+    <form method="post" >
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>Медицинское учреждение.</h5>
+            <h6>
+                <select class="form-select" name="med" required class="form-control">
+                    <option value='КГБУЗ "Алтайский краевой госпиталь для ветеранов войн"'>КГБУЗ "Алтайский краевой госпиталь для ветеранов войн"</option>
+                    <option value='КГБУЗ "Краевая клиническая больница"'>КГБУЗ "Краевая клиническая больница"</option>
+                    <option value='КГБУЗ «Городская больница №8, г. Барнаул»'>КГБУЗ «Городская больница №8, г. Барнаул»</option>
+                    <option value='КГБУЗ "Краевая клиническая больница скорой медицинской помощи №2"'>КГБУЗ "Краевая клиническая больница скорой медицинской помощи №2"</option>
+                    <option value='КГБУЗ "Городская больница имени Л.Я. Литвиненко, г. Новоалтайск"'>КГБУЗ "Городская больница имени Л.Я. Литвиненко, г. Новоалтайск"</option>
+                    <option value='ЧУЗ Клиническая больница РЖД-Медицина города Барнаул'>ЧУЗ Клиническая больница РЖД-Медицина города Барнаул</option>
+                    <option value="Другое">Другое...</option>
+                </select>
+            </h6>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>1. ФИО пациента</h5>
+            <h6><input type="text" size="50%" name="q1" class="form-control" placeholder required pattern="([А-Яа-яЁё]{1,})\s([А-Яа-яЁё]{1,})\s([А-Яа-яЁё]{1,})" title="Только русские буквы и один пробел между ФИО "></h6>
+
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>2. Возраст</h5>
+            <h5><input type="number" min="1" max="150" size="50%" name="q2" class="form-control" placeholder required ></h5>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>3. Е11.2 (Инсулиннезависимый сахарный диабет с поражением почек)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q3" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q3" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>4. N40 (Доброкачественная гиперплазия предстательной железы)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q4" type="radio" value="1" class="form-check-input" placeholder required>   Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q4" type="radio" value="0" class="form-check-input" placeholder required>   Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>5. N41 (Воспалительные болезни предстательной железы)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q5" type="radio" value="1" class="form-check-input" placeholder required>   Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q5" type="radio" value="0" class="form-check-input" placeholder required>   Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>6. B 18.0 ( Хр.вирусный гепатит В)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q6" type="radio" value="1" class="form-check-input" placeholder required>   Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q6" type="radio" value="0" class="form-check-input" placeholder required>   Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5> 7. B 18.2 (Хр. Вир гепатит С)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q7" type="radio" value="1" class="form-check-input" placeholder required>   Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q7" type="radio" value="0" class="form-check-input" placeholder required>   Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>8. D 51 (Витамин- В12-дефицитная анемия)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q8" type="radio" value="1" class="form-check-input" placeholder required>   Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q8" type="radio" value="0" class="form-check-input" placeholder required>   Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>9. D 86.2 (Саркоидоз легких)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q9" type="radio" value="1" class="form-check-input" placeholder required>   Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q9" type="radio" value="0" class="form-check-input" placeholder required>   Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>10. E 11.4 (Инсулиннезависимый сахарный диабет с неврологическими осложнениями)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q10" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q10" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>11. I11.0 (Гипертезивная (гипертоническая болезнь с преимущественным поражением сердца с (застойной) сердечной недостаточностью</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q11" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q11" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>12. I20 (Стенокардия)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q12" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q12" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>13. I67 (Др. Цереброваскулярные болезни)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q13" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q13" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>14. I70.2 (Атеросклероз артерий конечностей)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q14" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q14" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>15. J45 (Бронхиальная астма)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q15" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q15" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>16. K29 (Гастрит и дуоденит)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q16" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q16" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>17. N10 Острый тубулоинтерстициальный пиелонефрит</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q17" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q17" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>18. N11 Хронический тубулоинтерстициальный пиелонефрит</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q18" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q18" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>19. N30.0 Острый цистит</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q19" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q19" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>20. N30.1 Интерстициальный цистит (хронический)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q20" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q20" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>21. Оперативное вмешательство в области почек и мочевого пузыря, уретры в последние 6 месяцев</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q21" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q21" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>22. Катетеризация мочевого пузыря</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q22" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q22" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>23. Цистоскопия</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q23" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q23" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>24. Превышение сроков установки катетера</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q24" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q24" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>25. Нарушение правил асептики и антисептики</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q25" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q25" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>26. Выделение УПМФ (внешняя среда)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q26" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q26" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>27. Выделение ПМФ (внешняя среда)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q27" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q27" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>28. Нарушение сроков стационарного лечения (увеличение)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q28" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q28" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>29. Пол мужской</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q29" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q29" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>30. Лихорадка (> 37,5° С)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q30" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q30" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>31. Резкие позывы к мочеиспусканию</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q31" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q31" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>32. Учащенное мочеиспускание</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q32" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q32" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>33. Дизурия</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q33" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q33" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>34. Болезненность в надлобковой области</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q34" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q34" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>35. Обнаружение > 10^5 (10 в 5-й степени) микроорганизмов в см^3 мочи (не более 2 видов микроорганизмов)</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q35" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q35" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <div class="shadow bg-light p-5 rounded mt-3">
+            <h5>36. Положительный высев одного уропатогенного микроорганизма в количестве > 10^5 (10 в 5-й степени) КОЕ/мл у пациента, получающего антимикробную терапию, эффективную в отношении инфекций мочевыводящих путей</h5>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q36" type="radio" value="1" class="form-check-input" placeholder required>  Да</h6></label>
+            <label class="list-group-item d-flex gap-2"><h6><input name="q36" type="radio" value="0" class="form-check-input" placeholder required>  Нет</h6></label>
+        </div>
+        <br>
+        <input class="w-100 btn btn-primary btn-lg" type="submit" value="Отправить">
+    </form>
+    </div>
+{% endblock %}

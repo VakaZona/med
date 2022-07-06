@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/index/" class="nav-link active" aria-current="page">Главная</a></li>
+        <li class="nav-item"><a href="/quiz" class="nav-link">Опрос</a></li>
+        <li class="nav-item"><a href="/history" class="nav-link">Мои пациенты</a></li>
+        {% if current_user.role == "admin" %}
+            <li class="nav-item"><a href="/all" class="nav-link">Все пациенты</a></li>
+        {% endif %}
+        <li class="nav-item"><a href="/admin" class="nav-link">Пользователь</a></li>
+        {% if current_user.role == "admin" %}
+            <li class="nav-item"><a href="/all_users" class="nav-link">Все пользователи</a></li>
+        {% endif %}
+        <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Выход</a></li>
+      </ul>
+    </header>
+  </div>
+    {% block body%}{% endblock %}
+</body>
+</html>
